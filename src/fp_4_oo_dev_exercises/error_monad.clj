@@ -1,4 +1,4 @@
-(require [clojure.algo.monads :refer :all])
+(require '[clojure.algo.monads :refer :all])
 
 (def decider
   (fn [step-value continuation]
@@ -36,7 +36,7 @@
     (< n 2) 1
     :else (* n (factorial (dec n)))))
 
-(defn result
+(def result
   (with-monad error-monad
     (domonad [big-number (factorial -1)
               even-bigger (* 2 big-number)]
